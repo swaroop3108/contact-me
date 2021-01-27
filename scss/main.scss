@@ -1,0 +1,82 @@
+* {
+  &,
+  &::before,
+  &::after {
+    margin: 0;
+    padding: 0;
+    font-family: 'Chakra Petch', sans-serif;
+    box-sizing: border-box;
+    font-weight: 400;
+    outline: none !important;
+  }
+}
+
+:root {
+  font-family: 'Chakra Petch', sans-serif;
+  color: #dddddd;
+  font-size: 1rem;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow-x: hidden;
+  background: rgb(27, 32, 87);
+  background: linear-gradient(67deg, #141841 0%, #2745a0 100%);
+  user-select: none;
+}
+
+// ? Bubbles
+.bubbles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -99;
+  width: 999px;
+  height: 620px;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgb(221, 221, 221);
+    height: 15rem;
+    width: 15rem;
+    background: rgb(221, 221, 221);
+    background: linear-gradient(
+      90deg,
+      rgba(221, 221, 221, 0.19791666666666663) 0%,
+      rgba(255, 255, 255, 0.19511554621848737) 100%
+    );
+    border-radius: 50%;
+    border: 1px solid rgba(221, 221, 221, 0.25);
+    animation: pulse 5s ease-in-out infinite alternate;
+  }
+  &::before {
+    bottom: 5%;
+    left: -7.5%;
+    animation-delay: 3s;
+  }
+  &::after {
+    top: 5%;
+    right: -7.5%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+::selection {
+  background: #dddddd50;
+}
+
+@import 'form';
+@import 'popups';

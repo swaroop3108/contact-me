@@ -1,0 +1,77 @@
+.popups {
+  width: 100vw;
+  height: 75px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+
+  .popup {
+    position: absolute;
+    display: flex;
+    padding: 1rem 1.85rem;
+    border-radius: 5px;
+    backdrop-filter: blur(1rem);
+    transition: top 550ms cubic-bezier(1, -0.5, 0.25, 1.5);
+
+    top: -100%;
+
+    .pop_container {
+      display: flex;
+      justify-content: center;
+
+      .icon_container,
+      .info {
+        display: inline;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+      .icon_container {
+        height: 1.5rem;
+        width: auto;
+
+        svg {
+          height: 1.5rem;
+          width: 1.5rem;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    &.success_popup {
+      background: #a3ffbd50;
+      color: #a3ffbd;
+      border: 1px solid #a3ffbd75;
+      .pop_container {
+        .icon_container {
+          svg {
+            fill: #a3ffbd;
+          }
+        }
+      }
+
+      &[active] {
+        top: 1rem;
+      }
+    }
+    &.error_popup {
+      background: #ffb3ac50;
+      color: #ffb3ac;
+      border: 1px solid #ffb3ac75;
+
+      .pop_container {
+        .icon_container {
+          svg {
+            fill: #ffb3ac;
+          }
+        }
+      }
+
+      &[active] {
+        top: 1rem;
+      }
+    }
+  }
+}
